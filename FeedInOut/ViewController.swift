@@ -18,9 +18,20 @@ class ViewController: UIViewController {
         
     }
     
+    // フェードイン・アウトメソッド
+    func animateView(_ viewAnimate: UIView) {
+        UIView.animate(withDuration: 1.0, delay: 0, options: .curveEaseIn) {
+            viewAnimate.alpha = 0
+        } completion: { (_) in
+            UIView.animate(withDuration: 1.0, delay: 0, options: .curveEaseIn) {
+                viewAnimate.alpha = 1
+            }
+        }
+    }
+    
     // ボタンが押された時の処理
     @IBAction func buttonAction(_ sender: Any) {
-        print("ボタンがタップされました。")
+        print("ボタンが押されました。")
     }
 }
 
